@@ -1,12 +1,18 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using CodeCamper.Data.Configuration;
+using CodeCamper.Data.SampleData;
 using CodeCamper.Model;
 
 namespace CodeCamper.Data
 {
     public class CodeCamperDbContext : DbContext
     {
+        static CodeCamperDbContext()
+        {
+            Database.SetInitializer(new CodeCamperDatabaseInitializer());
+        }
+
         public CodeCamperDbContext() 
             :base(nameOrConnectionString: "CodeCamper") { }
 

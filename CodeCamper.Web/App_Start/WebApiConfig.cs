@@ -20,10 +20,22 @@ namespace CodeCamper.Web
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            // api/speakers
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
+                name: "ControllerOnly",
+                routeTemplate: "api/{controller}"
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "ControllerAndId",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                defaults: null,
+                constraints: new {id = @"^\d+$"} // all digits
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "ControllerAction",
+                routeTemplate: "api/{controller}/{action}"
             );
         }
     }
