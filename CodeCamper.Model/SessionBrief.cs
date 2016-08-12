@@ -3,6 +3,7 @@
     public class SessionBrief
     {
         public int Id { get; set; }
+        public string Title { get; set; }
         public string Code { get; set; }
         public int SpeakerId { get; set; }
         public int TrackId { get; set; }

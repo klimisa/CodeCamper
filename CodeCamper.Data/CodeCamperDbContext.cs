@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using CodeCamper.Data.Configuration;
 using CodeCamper.Model;
 
 namespace CodeCamper.Data
@@ -25,34 +25,6 @@ namespace CodeCamper.Data
 
             modelBuilder.Configurations.Add(new SessionConfiguration());
             modelBuilder.Configurations.Add(new AttendanceConfiguration());
-        }
-    }
-
-    public class SessionConfiguration: EntityTypeConfiguration<Session>
-    {
-        public SessionConfiguration()
-        {
-            HasRequired(s => s.Speaker)
-                .WithMany(p => p.SpeakerSessions)
-                .HasForeignKey(s => s.SpeakerId);
-        }
-    }
-
-    public class AttendanceConfiguration: EntityTypeConfiguration<Attendance>
-    {
-        public AttendanceConfiguration()
-        {
-            HasKey(a => new {a.SessionId, a.PersonId});
-
-            HasRequired(a => a.Session)
-                .WithMany(s => s.AttendanceList)
-                .HasForeignKey(a => a.SessionId)
-                .WillCascadeOnDelete(false);
-
-            HasRequired(a => a.Person)
-                .WithMany(p => p.AttendanceList)
-                .HasForeignKey(a => a.PersonId)
-                .WillCascadeOnDelete(false);
         }
     }
 }
