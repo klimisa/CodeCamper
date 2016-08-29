@@ -10,7 +10,7 @@ namespace CodeCamper.Data
     {
         static CodeCamperDbContext()
         {
-            Database.SetInitializer(new CodeCamperDatabaseInitializer());
+            //Database.SetInitializer(new CodeCamperDatabaseInitializer());
         }
 
         public CodeCamperDbContext() 

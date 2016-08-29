@@ -13,13 +13,15 @@ namespace CodeCamper.Web
     {
         protected void Application_Start()
         {
+            AreaRegistration.RegisterAllAreas();
+
             IocConfig.RegisterIoc(GlobalConfiguration.Configuration);
             
-            AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            GlobalConfiguration.Configure(WebApiConfig.Register);
 
             GlobalConfig.CustomizeConfig(GlobalConfiguration.Configuration);
         }
