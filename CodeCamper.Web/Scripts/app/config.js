@@ -14,7 +14,8 @@
             title = 'Camper > ',
 
             viewsIds = {
-                shellTop: '#shellTop-view'
+                shellTop: '#shellTop-view',
+                favorites: '#favorites-view'
             },
 
             dataserviceInit = function () { },

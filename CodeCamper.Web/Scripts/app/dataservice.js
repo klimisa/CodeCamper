@@ -14,7 +14,6 @@
                         def.resolve(dto);
                     },
                     error: function (response) {
-                        //logger.error('oops! could not retrieve person ' + id);
                         if (callbacks && callbacks.error) { callbacks.error(response); }
                         def.reject(response);
                     }

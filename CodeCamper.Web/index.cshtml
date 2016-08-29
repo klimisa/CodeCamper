@@ -1,4 +1,5 @@
-﻿@using System.Web.Optimization
+﻿@using System.Web.Mvc.Html
+@using System.Web.Optimization
 <!DOCTYPE html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -11,13 +12,10 @@
 <!-- <html lang="en"> -->
 <head>
     <meta charset="utf-8" />
-
     <!-- Mobile viewport optimized: h5bp.com/viewport -->
     <meta name="viewport" content="width=device-width">
     <title>Code Camper</title>
-
     @Styles.Render("~/Content/css", "~/Content/less")
-
     <!-- All JavaScript at the bottom, except this Modernizr build.
        Modernizr enables HTML5 elements & feature detects for optimal performance.
        Create your own custom Modernizr build: www.modernizr.com/download/ -->
@@ -37,6 +35,14 @@
             </ul>
         </nav>
     </header>
+
+    <section class="main">
+        @RenderPage("Views/favorites.cshtml")
+@*        @RenderPage("Views/speakers.cshtml")*@
+@*        @RenderPage("Views/sessions.cshtml")*@
+@*        @RenderPage("Views/session.cshtml")*@
+@*        @RenderPage("Views/speaker.cshtml")*@
+    </section>
 
 
     @Scripts.Render(
