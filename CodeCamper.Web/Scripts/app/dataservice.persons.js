@@ -2,7 +2,7 @@
     ['config'],
     function(config) {
         var
-            init = function () {
+            init = function() {
                 amplify.request.define('person', 'ajax', {
                     url: '/codecamper/api/persons/{id}',
                     dataType: 'json',

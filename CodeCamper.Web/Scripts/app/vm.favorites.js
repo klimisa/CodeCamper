@@ -4,11 +4,15 @@
         var
             timeslots = ko.observableArray(),
             days = ko.computed(function() {
-                group.timeslotsDays(timeslots());
-            });
+                return group.timeslotsDays(timeslots());
+            }),
+            activate = function (routeData) {
 
+            };
+            
         return {
             timeslots:timeslots,
-            days: days
+            days: days,
+            activate: activate
         }
     })

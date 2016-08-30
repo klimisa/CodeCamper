@@ -1,7 +1,8 @@
 ﻿define('vm',
-    ['vm.shell'],
-    function (shell) {
+    ['vm.shell', 'vm.favorites'],
+    function (shell, favorites) {
         return {
-            shell: shell
+            shell: shell,
+            favorites: favorites
         }
     });
